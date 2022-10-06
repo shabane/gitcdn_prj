@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
+from .models import Image
+from .serializer import ImageSerializer
 
-# Create your views here.
+
+class ImageViewSet(ModelViewSet):
+    queryset = Image.objects.all()
+    serializer_class = ImageSerializer
