@@ -1,7 +1,7 @@
 """This file contain custom useful modules"""
 import uuid
 import glob
-from gitcdn_prj.settings import STATICFILES_DIR
+from gitcdn_prj.settings import STATICFILES_DIRS
 from os.path import basename
 
 
@@ -11,7 +11,7 @@ def unamer(*args, **kwargs):
     """
 
     files = []
-    for dir in STATICFILES_DIR:
+    for dir in STATICFILES_DIRS:
         for file in (glob.glob(f'{dir}/*')):
             files.append(basename(file)[:basename(file).find('.')])
 
