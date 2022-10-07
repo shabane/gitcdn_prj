@@ -6,7 +6,6 @@ class CdnInterface():
     def __init__(self, owner, repo):
         self.owner = owner
         self.repo = repo
-        self.filename = filename
 
     def insert(self):
         ...
