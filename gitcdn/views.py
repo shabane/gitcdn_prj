@@ -29,7 +29,8 @@ class ImageViewSet(ModelViewSet):
             file = file
             res = git.insert(f'files/{file_name}', file, f'add image {file_name}')
 
-            #TODO: check if 200 or 201
+            if res.status_code != 201:
+                return Response(res.json())
 
             res = {
                 'status': res.status_code,
