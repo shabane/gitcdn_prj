@@ -41,3 +41,14 @@ class ImageViewSet(ModelViewSet):
             return Response(res)
         else:
             return Response(serializer_class.errors)
+
+    def list(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return Response({
+                'status': '403',
+                'msg': 'list images need authenticated user.'
+            })
+
+        queryset = Image.objects.all()
+        serializer = ImageSerializer(queryset, many=True)
+        return Response(serializer.data)
