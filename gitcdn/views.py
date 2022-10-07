@@ -24,13 +24,18 @@ class ImageViewSet(ModelViewSet):
 
             if SAVE_TO_DB:
                 Image.objects.create(name=file_name, image=serializer_class.validated_data['image'])
+                #TODO: :/ we should use the hash of file as it saving name
 
             git = Github(OWNER, REPO, TOKEN)
             file = file
             res = git.insert(f'files/{file_name}', file, f'add image {file_name}')
 
             if res.status_code != 201:
-                return Response(res.json())
+                return Response({
+                    'status_code': res.status_code,
+                    'reference': 'https://docs.github.com/en/rest/repos/contents#create-or-update-file-contents--status-codes',
+                    'msg': res.json(),
+                })
 
             res = {
                 'status': res.status_code,
