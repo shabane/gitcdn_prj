@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from .models import Image
-from .serializer import ImageSerializer
+from .serializer import ImageSerializer, ImageSerializerAllField
 from rest_framework.response import Response
 from gitcdn_prj.settings import SAVE_TO_DB, REPO, OWNER, TOKEN
 from .moduls import unamer
@@ -50,5 +50,5 @@ class ImageViewSet(ModelViewSet):
             })
 
         queryset = Image.objects.all()
-        serializer = ImageSerializer(queryset, many=True)
+        serializer = ImageSerializerAllField(queryset, many=True)
         return Response(serializer.data)
