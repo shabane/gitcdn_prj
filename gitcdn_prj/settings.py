@@ -131,3 +131,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # custom settings
 
 SAVE_TO_DB = False  #indicate that either save files to database or not
+REPO = os.getenv('REPO', '<set ENV or put your repository name here>')
+OWNER = os.getenv('OWNER', '<set ENV or the repository owner here>')
+TOKEN = os.getenv('TOKEN', '<or hard code your token here>')
+
