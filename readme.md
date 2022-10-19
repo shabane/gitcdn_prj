@@ -21,6 +21,7 @@ Github repository without your Github token.
 |`REPO`|[str, ...]|list of REPO you have the access to|
 |`OWNER`|str|the owner of the repositories|
 |`TOKEN`|str|your Github token|
+|`SAVE_DIR`|str|upstream directory to save your content|
 
 
 ### Run testing server
