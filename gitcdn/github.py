@@ -7,7 +7,7 @@ import json
 
 class Github(CdnInterface):
     """this is the class of github"""
-
+    #TODO: let the repo to be a list of str, this will let us to use the multiple repo for saving one content
     def __init__(self, owner, repo, token):
         CdnInterface.__init__(self, owner, repo)
         self.token = token
