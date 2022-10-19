@@ -134,4 +134,4 @@ SAVE_TO_DB = os.getenv('SAVE_TO_DB', False)  #indicate that either save files to
 REPO = os.getenv('REPO', '<set ENV or put your repository name here>')
 OWNER = os.getenv('OWNER', '<set ENV or the repository owner here>')
 TOKEN = os.getenv('TOKEN', '<or hard code your token here>')
-
+SAVE_DIR = os.getenv('SAVE_DIR', '<upstream saving directory>')

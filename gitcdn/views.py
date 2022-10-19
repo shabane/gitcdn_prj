@@ -3,7 +3,7 @@ from rest_framework.viewsets import ModelViewSet
 from .models import Image
 from .serializer import ImageSerializer, ImageSerializerAllField
 from rest_framework.response import Response
-from gitcdn_prj.settings import SAVE_TO_DB, REPO, OWNER, TOKEN
+from gitcdn_prj.settings import SAVE_TO_DB, REPO, OWNER, TOKEN, SAVE_DIR
 from .moduls import unamer
 from .github import Github
 import os
@@ -28,7 +28,7 @@ class ImageViewSet(ModelViewSet):
 
             git = Github(OWNER, REPO, TOKEN)
             file = file
-            res = git.insert(f'files/{file_name}', file, f'add image {file_name}')
+            res = git.insert(f'{SAVE_DIR}/{file_name}', file, f'add image {file_name}')
 
             if res.status_code != 201:
                 return Response({
