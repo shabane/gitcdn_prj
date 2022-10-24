@@ -43,3 +43,9 @@ $ export TOKEN='gpg_....'
 # run test server
 $ ./manage.py runserver 80
 ```
+
+### Docs
+
+|         Language         |
+|:------------------------:|
+| [Python](docs/python.md) |
