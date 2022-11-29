@@ -17,9 +17,9 @@ class Github(CdnInterface):
             'Accept': 'application/vnd.github+json',
         }
 
-    def insert(self, path, file, message):
+    def insert(self, path, file, message, b64: bool = False):
         data = {
-            'content': base64.b64encode(file).decode(),
+            'content': file if b64 else base64.b64encode(file).decode(),
             'message': message
         }
 
